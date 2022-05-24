@@ -4,9 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="bookDao" class="com.wjc.dao.impl.BookDaoImpl" init-method="init" destroy-method="destory"/>
-
-    <bean id="bookService" class="com.wjc.service.impl.BookServiceImpl">
-        <property name="bookDao" ref="bookDao"/>
+    <bean id="bookDao" class="com.wjc.dao.impl.BookDaoImpl">
+        <constructor-arg name="databaseName" value="AAADB"/>
+        <constructor-arg name="databaseNum" value="1"/>
     </bean>
+
+
+    <bean id="bookService" class="com.wjc.service.impl.BookServiceImpl" autowire="byType"/>
 </beans>
