@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!--构造方法实例化-->
+    <bean class="com.wjc.dao.impl.BookDaoImpl" id="bookDao"/>
+
+<!--静态工厂实例化-->
+    <bean class="com.wjc.factory.OrderDaoFactory" id="orderDao" factory-method="getOrderDao"/>
+
+<!--实例工厂实例化-->
+<!--    <bean class="com.wjc.factory.UserDaoFactory" id="userDaoFactory"/>-->
+<!--    <bean factory-bean="userDaoFactory" factory-method="getUserDao" id="userDao"/>-->
+
+<!--使用FactoryBean实例化-->
+<!--只是用FactoryBean类，实现FactoryBean接口的方法 -->
+    <bean id="userDao" class="com.wjc.factory.UserDaoFactoryBean" />
+
+</beans>
